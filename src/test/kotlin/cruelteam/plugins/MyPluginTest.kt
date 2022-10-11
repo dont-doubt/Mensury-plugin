@@ -1,4 +1,4 @@
-package com.github.dontdoubt.mensuryplugin
+package cruelteam.plugins
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.psi.xml.XmlFile

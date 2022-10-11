@@ -14,18 +14,22 @@
 - [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
+[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+
+---
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+That plugin was written by @rivta for Mensury client developement purposes.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+Supports:
+- Mensury locale language support
+- Gleb's Kill Aura module developement support
+- Airat's Moral'naya podderzhka vo vremya kodinga ne v intellij idee
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
 <!-- Plugin description end -->
-
 ## Installation
 
 - Using IDE built-in plugin system:
-  
+
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Mensury-plugin"</kbd> >
   <kbd>Install Plugin</kbd>
   
@@ -33,9 +37,3 @@ To keep everything working, do not remove `<!-- ... -->` sections.
 
   Download the [latest release](https://github.com/dont-doubt/Mensury-plugin/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
-
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
