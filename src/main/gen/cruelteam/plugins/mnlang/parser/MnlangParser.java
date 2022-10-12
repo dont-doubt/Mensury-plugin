@@ -36,23 +36,16 @@ public class MnlangParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KEY SEPARATOR VALUE?
-  public static boolean entry(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "entry")) return false;
+  // KEY SEPARATOR value
+  public static boolean ENTRY(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ENTRY")) return false;
     if (!nextTokenIs(b, KEY)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeTokens(b, 0, KEY, SEPARATOR);
-    r = r && entry_2(b, l + 1);
+    r = r && value(b, l + 1);
     exit_section_(b, m, ENTRY, r);
     return r;
-  }
-
-  // VALUE?
-  private static boolean entry_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "entry_2")) return false;
-    consumeToken(b, VALUE);
-    return true;
   }
 
   /* ********************************************************** */
@@ -68,15 +61,51 @@ public class MnlangParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // entry | PREFIX | COMMENT
-  public static boolean line(PsiBuilder b, int l) {
+  // ENTRY | prefix | COMMENT
+  static boolean line(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "line")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, LINE, "<line>");
-    r = entry(b, l + 1);
-    if (!r) r = consumeToken(b, PREFIX);
+    r = ENTRY(b, l + 1);
+    if (!r) r = prefix(b, l + 1);
     if (!r) r = consumeToken(b, COMMENT);
-    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // OPEN_PREFIX PREFIX CLOSE_PREFIX
+  static boolean prefix(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "prefix")) return false;
+    if (!nextTokenIs(b, OPEN_PREFIX)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, OPEN_PREFIX, PREFIX, CLOSE_PREFIX);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // (VALUE | ESCAPE)+
+  static boolean value(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "value")) return false;
+    if (!nextTokenIs(b, "", ESCAPE, VALUE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = value_0(b, l + 1);
+    while (r) {
+      int c = current_position_(b);
+      if (!value_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "value", c)) break;
+    }
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // VALUE | ESCAPE
+  private static boolean value_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "value_0")) return false;
+    boolean r;
+    r = consumeToken(b, VALUE);
+    if (!r) r = consumeToken(b, ESCAPE);
     return r;
   }
 

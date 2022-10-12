@@ -23,8 +23,10 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
             createTextAttributesKey("MNLANG_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
     public static final TextAttributesKey BAD_CHARACTER =
             createTextAttributesKey("MNLANG_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
+    public static final TextAttributesKey ESCAPE =
+            createTextAttributesKey("MNLANG_ESCAPE", DefaultLanguageHighlighterColors.VALID_STRING_ESCAPE);
     public static final TextAttributesKey PREFIX =
-            createTextAttributesKey("MNLANG_PREFIX", (TextAttributesKey) null);
+            createTextAttributesKey("MNLANG_PREFIX", DefaultLanguageHighlighterColors.INSTANCE_FIELD/*(TextAttributesKey) null*/);
 
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
@@ -32,6 +34,7 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final TextAttributesKey[] KEY_KEYS = new TextAttributesKey[]{KEY};
     private static final TextAttributesKey[] VALUE_KEYS = new TextAttributesKey[]{VALUE};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
+    private static final TextAttributesKey[] ESCAPE_KEYS = new TextAttributesKey[]{ESCAPE};
     private static final TextAttributesKey[] PREFIX_KEYS = new TextAttributesKey[]{PREFIX};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
 
@@ -40,11 +43,14 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
     }
 
     @Override public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType) {
-        if (tokenType.equals(MnlangTypes.SEPARATOR)) return SEPARATOR_KEYS;
         if (tokenType.equals(MnlangTypes.KEY)) return KEY_KEYS;
         if (tokenType.equals(MnlangTypes.VALUE)) return VALUE_KEYS;
+        if (tokenType.equals(MnlangTypes.SEPARATOR)) return SEPARATOR_KEYS;
         if (tokenType.equals(MnlangTypes.COMMENT)) return COMMENT_KEYS;
-        if (tokenType.equals(MnlangTypes.PREFIX)) return PREFIX_KEYS;
+        if (tokenType.equals(MnlangTypes.ESCAPE)) return ESCAPE_KEYS;
+        if (tokenType.equals(MnlangTypes.PREFIX)
+            || tokenType.equals(MnlangTypes.OPEN_PREFIX)
+            || tokenType.equals(MnlangTypes.CLOSE_PREFIX)) return PREFIX_KEYS;
         if (tokenType.equals(TokenType.BAD_CHARACTER)) return BAD_CHAR_KEYS;
         return EMPTY_KEYS;
     }

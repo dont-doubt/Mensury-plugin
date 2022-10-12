@@ -11,14 +11,14 @@
   elementTypeHolderClass="cruelteam.plugins.mnlang.psi.MnlangTypes"
   elementTypeClass="cruelteam.plugins.mnlang.psi.MnlangElementType"
   tokenTypeClass="cruelteam.plugins.mnlang.psi.MnlangTokenType"
-
-  psiImplUtilClass="cruelteam.plugins.mnlang.psi.impl.MnlangPsiImplUtil"
 }
 
-//simpleFile ::= item_*
-//private item_ ::= (property|COMMENT|CRLF)
-//property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[getKey getValue]}
+//file ::= line*
+//private line ::= entry | PREFIX | COMMENT
+//entry ::= (KEY? SEPARATOR VALUE?) | KEY
 
 file ::= line*
-line ::= entry | PREFIX | COMMENT
-entry ::= (KEY? SEPARATOR VALUE?) | KEY
+private line ::= ENTRY | prefix | COMMENT
+private prefix ::= OPEN_PREFIX PREFIX CLOSE_PREFIX
+ENTRY ::= KEY SEPARATOR value
+private value ::= (VALUE | ESCAPE)+

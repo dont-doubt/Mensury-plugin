@@ -5,15 +5,16 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import cruelteam.plugins.mnlang.psi.impl.MnlangEntryImpl;
-import cruelteam.plugins.mnlang.psi.impl.MnlangLineImpl;
 
 public interface MnlangTypes {
 
   IElementType ENTRY = new MnlangElementType("ENTRY");
-  IElementType LINE = new MnlangElementType("LINE");
 
+  IElementType CLOSE_PREFIX = new MnlangTokenType("CLOSE_PREFIX");
   IElementType COMMENT = new MnlangTokenType("COMMENT");
+  IElementType ESCAPE = new MnlangTokenType("ESCAPE");
   IElementType KEY = new MnlangTokenType("KEY");
+  IElementType OPEN_PREFIX = new MnlangTokenType("OPEN_PREFIX");
   IElementType PREFIX = new MnlangTokenType("PREFIX");
   IElementType SEPARATOR = new MnlangTokenType("SEPARATOR");
   IElementType VALUE = new MnlangTokenType("VALUE");
@@ -23,9 +24,6 @@ public interface MnlangTypes {
       IElementType type = node.getElementType();
       if (type == ENTRY) {
         return new MnlangEntryImpl(node);
-      }
-      else if (type == LINE) {
-        return new MnlangLineImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }
