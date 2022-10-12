@@ -10,11 +10,9 @@ public interface MnlangTypes {
 
   IElementType ENTRY = new MnlangElementType("ENTRY");
 
-  IElementType CLOSE_PREFIX = new MnlangTokenType("CLOSE_PREFIX");
   IElementType COMMENT = new MnlangTokenType("COMMENT");
   IElementType ESCAPE = new MnlangTokenType("ESCAPE");
   IElementType KEY = new MnlangTokenType("KEY");
-  IElementType OPEN_PREFIX = new MnlangTokenType("OPEN_PREFIX");
   IElementType PREFIX = new MnlangTokenType("PREFIX");
   IElementType SEPARATOR = new MnlangTokenType("SEPARATOR");
   IElementType VALUE = new MnlangTokenType("VALUE");

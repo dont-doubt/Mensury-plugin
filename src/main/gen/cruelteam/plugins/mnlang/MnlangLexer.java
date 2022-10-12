@@ -32,7 +32,7 @@ public class MnlangLexer implements FlexLexer {
    * l is of the form l = 2*k, k a non negative integer
    */
   private static final int ZZ_LEXSTATE[] = { 
-     0,  1,  2, 2
+     0,  0,  1, 1
   };
 
   /** 
@@ -54,9 +54,9 @@ public class MnlangLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 640 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\13\1\5\1\3\1\0\1\1\1\4\22\13\1\5\15\13\1\7\1\13\12\7\3\13\1\11\3\13\21"+
-    "\7\1\6\10\7\1\10\1\2\1\12\3\13\32\7\12\13\1\0\32\13\1\0\337\13\1\0\177\13"+
-    "\13\0\35\13\2\0\5\13\1\0\57\13\1\0\40\13");
+    "\11\13\1\6\1\4\1\3\1\1\1\5\22\13\1\6\15\13\1\10\1\13\12\10\3\13\1\12\3\13"+
+    "\21\10\1\7\10\10\1\11\1\2\1\14\3\13\32\10\12\13\1\3\32\13\1\0\337\13\1\0\177"+
+    "\13\13\0\35\13\2\3\5\13\1\0\57\13\1\0\40\13");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -64,11 +64,11 @@ public class MnlangLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\3\0\1\1\1\2\2\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\2\2\11\1\2\1\0\1\10";
+    "\2\0\1\1\1\2\1\3\1\1\1\4\1\5\1\2"+
+    "\1\1\3\2\1\0\1\6\1\0\1\5";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[18];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -93,12 +93,12 @@ public class MnlangLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\14\0\30\0\44\0\60\0\74\0\110\0\74"+
-    "\0\74\0\124\0\110\0\140\0\154\0\170\0\204\0\220"+
-    "\0\170\0\234";
+    "\0\0\0\15\0\32\0\47\0\64\0\101\0\32\0\116"+
+    "\0\133\0\150\0\165\0\202\0\217\0\101\0\101\0\150"+
+    "\0\234";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[18];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -121,18 +121,18 @@ public class MnlangLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\4\1\5\1\6\2\4\1\5\3\7\1\10\1\11"+
-    "\1\6\2\4\1\6\3\4\2\12\1\13\1\10\1\11"+
-    "\1\6\1\14\1\15\1\16\1\17\1\14\2\20\5\14"+
-    "\6\4\1\0\6\4\1\5\3\4\1\5\1\0\7\4"+
-    "\1\6\3\4\1\7\5\6\2\0\1\7\3\0\6\7"+
-    "\2\0\1\7\3\0\2\12\4\7\1\14\1\0\1\21"+
-    "\1\0\10\14\1\0\1\15\3\0\2\15\5\0\4\14"+
-    "\1\22\7\14\14\0\1\14\1\15\1\21\1\0\1\14"+
-    "\2\20\6\14\1\0\1\21\11\14";
+    "\1\3\1\4\4\3\2\4\1\5\1\6\1\7\2\3"+
+    "\1\10\1\11\1\12\1\10\1\3\1\10\2\13\5\10"+
+    "\15\0\1\14\1\4\4\14\2\4\1\15\4\14\1\0"+
+    "\1\5\4\0\3\5\6\0\1\16\4\0\5\16\1\17"+
+    "\1\10\1\0\1\20\1\10\1\0\10\10\1\0\1\11"+
+    "\4\0\2\11\6\0\1\10\1\0\2\10\1\21\7\0"+
+    "\1\10\1\11\1\20\1\10\1\0\1\10\2\13\5\10"+
+    "\7\14\1\0\6\14\1\15\4\14\1\15\1\5\1\15"+
+    "\4\14\1\10\1\0\1\20\12\10";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[168];
+    int [] result = new int[169];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -170,10 +170,11 @@ public class MnlangLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\3\0\13\1\1\11\1\1\1\0\1\1";
+    "\2\0\1\11\3\1\1\11\6\1\1\0\1\1\1\0"+
+    "\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[18];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -407,44 +408,11 @@ public class MnlangLexer implements FlexLexer {
     while (true) {
       zzMarkedPosL = zzMarkedPos;
 
-      if (zzMarkedPosL > zzStartRead) {
-        switch (zzBufferL.charAt(zzMarkedPosL-1)) {
-        case '\n':
-        case '\u000B':  // fall through
-        case '\u000C':  // fall through
-        case '\u0085':  // fall through
-        case '\u2028':  // fall through
-        case '\u2029':  // fall through
-          zzAtBOL = true;
-          break;
-        case '\r': 
-          if (zzMarkedPosL < zzEndReadL)
-            zzAtBOL = zzBufferL.charAt(zzMarkedPosL) != '\n';
-          else if (zzAtEOF)
-            zzAtBOL = false;
-          else {
-            boolean eof = zzRefill();
-            zzMarkedPosL = zzMarkedPos;
-            zzEndReadL = zzEndRead;
-            zzBufferL = zzBuffer;
-            if (eof) 
-              zzAtBOL = false;
-            else 
-              zzAtBOL = zzBufferL.charAt(zzMarkedPosL) != '\n';
-          }
-          break;
-        default:
-          zzAtBOL = false;
-        }
-      }
       zzAction = -1;
 
       zzCurrentPosL = zzCurrentPos = zzStartRead = zzMarkedPosL;
 
-      if (zzAtBOL)
-        zzState = ZZ_LEXSTATE[zzLexicalState+1];
-      else
-        zzState = ZZ_LEXSTATE[zzLexicalState];
+      zzState = ZZ_LEXSTATE[zzLexicalState];
 
       // set up zzAction for empty match case:
       int zzAttributes = zzAttrL[zzState];
@@ -507,50 +475,35 @@ public class MnlangLexer implements FlexLexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { return MnlangTypes.COMMENT;
+            { return TokenType.BAD_CHARACTER;
             } 
             // fall through
-          case 10: break;
+          case 7: break;
           case 2: 
             { return TokenType.WHITE_SPACE;
             } 
             // fall through
-          case 11: break;
+          case 8: break;
           case 3: 
-            { return MnlangTypes.PREFIX;
+            { return MnlangTypes.KEY;
             } 
             // fall through
-          case 12: break;
+          case 9: break;
           case 4: 
             { yybegin(FINDING_VALUE); return MnlangTypes.SEPARATOR;
             } 
             // fall through
-          case 13: break;
+          case 10: break;
           case 5: 
-            { return MnlangTypes.CLOSE_PREFIX;
-            } 
-            // fall through
-          case 14: break;
-          case 6: 
-            { return MnlangTypes.KEY;
-            } 
-            // fall through
-          case 15: break;
-          case 7: 
-            { return MnlangTypes.OPEN_PREFIX;
-            } 
-            // fall through
-          case 16: break;
-          case 8: 
             { yybegin(YYINITIAL); return MnlangTypes.VALUE;
             } 
             // fall through
-          case 17: break;
-          case 9: 
-            { return TokenType.BAD_CHARACTER;
+          case 11: break;
+          case 6: 
+            { return MnlangTypes.PREFIX;
             } 
             // fall through
-          case 18: break;
+          case 12: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

@@ -18,7 +18,6 @@
 //entry ::= (KEY? SEPARATOR VALUE?) | KEY
 
 file ::= line*
-private line ::= ENTRY | prefix | COMMENT
-private prefix ::= OPEN_PREFIX PREFIX CLOSE_PREFIX
+private line ::= ENTRY | PREFIX | COMMENT
 ENTRY ::= KEY SEPARATOR value
 private value ::= (VALUE | ESCAPE)+

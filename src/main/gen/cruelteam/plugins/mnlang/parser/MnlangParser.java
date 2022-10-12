@@ -61,25 +61,13 @@ public class MnlangParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ENTRY | prefix | COMMENT
+  // ENTRY | PREFIX | COMMENT
   static boolean line(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "line")) return false;
     boolean r;
     r = ENTRY(b, l + 1);
-    if (!r) r = prefix(b, l + 1);
+    if (!r) r = consumeToken(b, PREFIX);
     if (!r) r = consumeToken(b, COMMENT);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // OPEN_PREFIX PREFIX CLOSE_PREFIX
-  static boolean prefix(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "prefix")) return false;
-    if (!nextTokenIs(b, OPEN_PREFIX)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, OPEN_PREFIX, PREFIX, CLOSE_PREFIX);
-    exit_section_(b, m, null, r);
     return r;
   }
 

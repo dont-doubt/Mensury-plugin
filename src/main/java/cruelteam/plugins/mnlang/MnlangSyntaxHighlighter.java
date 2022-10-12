@@ -48,9 +48,7 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MnlangTypes.SEPARATOR)) return SEPARATOR_KEYS;
         if (tokenType.equals(MnlangTypes.COMMENT)) return COMMENT_KEYS;
         if (tokenType.equals(MnlangTypes.ESCAPE)) return ESCAPE_KEYS;
-        if (tokenType.equals(MnlangTypes.PREFIX)
-            || tokenType.equals(MnlangTypes.OPEN_PREFIX)
-            || tokenType.equals(MnlangTypes.CLOSE_PREFIX)) return PREFIX_KEYS;
+        if (tokenType.equals(MnlangTypes.PREFIX)) return PREFIX_KEYS;
         if (tokenType.equals(TokenType.BAD_CHARACTER)) return BAD_CHAR_KEYS;
         return EMPTY_KEYS;
     }
