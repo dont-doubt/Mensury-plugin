@@ -49,6 +49,17 @@ public class MnlangParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // COMMENT | DOC_COMMENT
+  static boolean comment(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "comment")) return false;
+    if (!nextTokenIs(b, "", COMMENT, DOC_COMMENT)) return false;
+    boolean r;
+    r = consumeToken(b, COMMENT);
+    if (!r) r = consumeToken(b, DOC_COMMENT);
+    return r;
+  }
+
+  /* ********************************************************** */
   // line*
   static boolean file(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "file")) return false;
@@ -61,13 +72,14 @@ public class MnlangParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ENTRY | PREFIX | COMMENT
+  // ENTRY | PREFIX | comment | WHITE_SPACE
   static boolean line(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "line")) return false;
     boolean r;
     r = ENTRY(b, l + 1);
     if (!r) r = consumeToken(b, PREFIX);
-    if (!r) r = consumeToken(b, COMMENT);
+    if (!r) r = comment(b, l + 1);
+    if (!r) r = consumeToken(b, WHITE_SPACE);
     return r;
   }
 

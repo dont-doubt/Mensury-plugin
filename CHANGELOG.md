@@ -5,4 +5,4 @@
 ## [Unreleased]
 
 ## [1.0.0]
-- A plugin was created
+- Added support for Mensury locale (*.mnlang) files
