@@ -7,7 +7,7 @@
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
 - [ ] Get familiar with the [template documentation][template].
-- [ ] Verify the [pluginGroup](./gradle.properties), [plugin ID](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
+- [ ] Verify the [pluginGroup](gradle.properties), [plugin ID](src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
 - [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
 - [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
 - [ ] Set the Plugin ID in the above README badges.
@@ -18,14 +18,12 @@
 
 ---
 <!-- Plugin description -->
-That plugin was written by @rivta for Mensury client developement purposes.
+This plugin was written by @rivta for Mensury client developement purposes.
 
 Supports:
-- Mensury locale language support
-- Gleb's Kill Aura module developement support
-- Airat's Moral'naya podderzhka vo vremya kodinga ne v intellij idee
-
+- Mensury locale language support (for any .mnlang files)
 <!-- Plugin description end -->
+
 ## Installation
 
 - Using IDE built-in plugin system:

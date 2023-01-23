@@ -5,4 +5,7 @@
 ## [Unreleased]
 
 ## [1.0.0]
-- A plugin was created
+- Added Mensury locale language support
+
+## [1.0.1]
+- Adjusted currently supporting IntelliJ IDEA versions

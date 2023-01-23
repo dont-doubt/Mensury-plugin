@@ -21,12 +21,14 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
             createTextAttributesKey("MNLANG_VALUE", DefaultLanguageHighlighterColors.STRING);
     public static final TextAttributesKey COMMENT =
             createTextAttributesKey("MNLANG_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
-    public static final TextAttributesKey BAD_CHARACTER =
-            createTextAttributesKey("MNLANG_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
+    public static final TextAttributesKey DOC_COMMENT =
+            createTextAttributesKey("MNLANG_DOC_COMMENT", DefaultLanguageHighlighterColors.DOC_COMMENT);
     public static final TextAttributesKey ESCAPE =
             createTextAttributesKey("MNLANG_ESCAPE", DefaultLanguageHighlighterColors.VALID_STRING_ESCAPE);
     public static final TextAttributesKey PREFIX =
-            createTextAttributesKey("MNLANG_PREFIX", DefaultLanguageHighlighterColors.INSTANCE_FIELD/*(TextAttributesKey) null*/);
+            createTextAttributesKey("MNLANG_PREFIX", DefaultLanguageHighlighterColors.INSTANCE_FIELD);
+    public static final TextAttributesKey BAD_CHARACTER =
+            createTextAttributesKey("MNLANG_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
 
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
@@ -34,6 +36,7 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final TextAttributesKey[] KEY_KEYS = new TextAttributesKey[]{KEY};
     private static final TextAttributesKey[] VALUE_KEYS = new TextAttributesKey[]{VALUE};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
+    private static final TextAttributesKey[] DOC_COMMENT_KEYS = new TextAttributesKey[]{DOC_COMMENT};
     private static final TextAttributesKey[] ESCAPE_KEYS = new TextAttributesKey[]{ESCAPE};
     private static final TextAttributesKey[] PREFIX_KEYS = new TextAttributesKey[]{PREFIX};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
@@ -47,6 +50,7 @@ public class MnlangSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MnlangTypes.VALUE)) return VALUE_KEYS;
         if (tokenType.equals(MnlangTypes.SEPARATOR)) return SEPARATOR_KEYS;
         if (tokenType.equals(MnlangTypes.COMMENT)) return COMMENT_KEYS;
+        if (tokenType.equals(MnlangTypes.DOC_COMMENT)) return DOC_COMMENT_KEYS;
         if (tokenType.equals(MnlangTypes.ESCAPE)) return ESCAPE_KEYS;
         if (tokenType.equals(MnlangTypes.PREFIX)) return PREFIX_KEYS;
         if (tokenType.equals(TokenType.BAD_CHARACTER)) return BAD_CHAR_KEYS;

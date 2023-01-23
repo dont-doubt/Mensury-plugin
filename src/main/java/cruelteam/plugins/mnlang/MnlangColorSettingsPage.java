@@ -6,6 +6,7 @@ import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
 import cruelteam.plugins.Icons;
+import cruelteam.plugins.utils.FileUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,13 +14,9 @@ import javax.swing.*;
 import java.util.Map;
 
 public class MnlangColorSettingsPage implements ColorSettingsPage {
-    private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
-            new AttributesDescriptor("Prefix", MnlangSyntaxHighlighter.PREFIX),
-            new AttributesDescriptor("Key", MnlangSyntaxHighlighter.KEY),
-            new AttributesDescriptor("Separator", MnlangSyntaxHighlighter.SEPARATOR),
-            new AttributesDescriptor("Value", MnlangSyntaxHighlighter.VALUE),
-            new AttributesDescriptor("Bad value", MnlangSyntaxHighlighter.BAD_CHARACTER)
-    };
+    private static final AttributesDescriptor[] DESCRIPTORS = MnlangColors.getDescriptors();
+    private static final Map<String, TextAttributesKey> ANNOTATOR_TAGS = MnlangColors.getTags();
+    private static final String preview = FileUtils.getResourceFileAsString("/mensury/mnlang_preview.txt");
 
     @Nullable @Override public Icon getIcon() {
         return Icons.MENSURY;
@@ -30,19 +27,11 @@ public class MnlangColorSettingsPage implements ColorSettingsPage {
     }
 
     @NotNull @Override public String getDemoText() {
-        return    "# Comment line\n"
-                + "\n"
-                + "[property.prefix]\n"
-                + "property = Value\n"
-                + "colored.property = {#4}Red {#L}Bold {\\n}New line\n"
-                + "multiline.property = First line\\\n"
-                + "Second line\\\n"
-                + "Third line"
-        ;
+        return preview;
     }
 
     @Nullable @Override public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-        return null;
+        return ANNOTATOR_TAGS;
     }
 
     @Override public AttributesDescriptor @NotNull [] getAttributeDescriptors() {
