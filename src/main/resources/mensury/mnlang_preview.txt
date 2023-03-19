@@ -1,0 +1,17 @@
+/**
+ * Doc comment
+ */
+
+/*
+ * Block comment
+ */
+
+// Java-style comment line
+# Hashtag comment line
+
+[property.prefix]
+property = Value
+colored.property = {#4}Red {#L}Bold {\\n}New line
+multiline.property = First line\
+Second line\
+Third line
