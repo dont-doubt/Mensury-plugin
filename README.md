@@ -37,3 +37,6 @@ This plugin has been written by Rivta for Mensury client developement purposes.
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
+
+## License
+The project lies under GNU General Public License v3.0
