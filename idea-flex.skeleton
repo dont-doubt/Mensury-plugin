@@ -167,7 +167,6 @@
 --- throws clause
   }
 
-
   /**
    * Pushes the specified amount of characters back into the input stream.
    *

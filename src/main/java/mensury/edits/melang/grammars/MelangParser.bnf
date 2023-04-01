@@ -1,0 +1,23 @@
+{
+  parserClass="mensury.edits.melang.parser.MelangParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Melang"
+  psiImplClassSuffix="Impl"
+  psiPackage="mensury.edits.melang.psi"
+  psiImplPackage="mensury.edits.melang.psi.impl"
+
+  elementTypeHolderClass="mensury.edits.melang.psi.MelangTypes"
+  elementTypeClass="mensury.edits.melang.psi.MelangElementType"
+  tokenTypeClass="mensury.edits.melang.psi.MelangTokenType"
+}
+
+//file ::= line*
+//private line ::= entry | PREFIX | COMMENT
+//entry ::= (KEY? SEPARATOR VALUE?) | KEY
+
+file ::= line*
+private line ::= ENTRY | PREFIX | comment | WHITE_SPACE
+private comment ::= COMMENT | DOC_COMMENT
+ENTRY ::= KEY SEPARATOR value
+private value ::= (VALUE | ESCAPE)+

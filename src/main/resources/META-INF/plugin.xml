@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>cruelteam.plugins</id>
+    <id>mensury.edits</id>
     <name>Mensury Edits</name>
     <vendor>rivta</vendor>
 
@@ -10,28 +10,28 @@
         <!-- Main definition -->
         <fileType
                 name="Mensury Locale"
-                implementationClass="cruelteam.plugins.mnlang.MnlangFileType"
+                implementationClass="mensury.edits.melang.MelangFileType"
                 fieldName="INSTANCE"
                 language="Mensury Locale"
-                extensions="mnlang"/>
+                extensions="melang;mnlang"/>
 
 
         <!-- Parser and syntax -->
         <lang.parserDefinition
                 language="Mensury Locale"
-                implementationClass="cruelteam.plugins.mnlang.MnlangParserDefinition"/>
+                implementationClass="mensury.edits.melang.MelangParserDefinition"/>
 
         <lang.syntaxHighlighterFactory
                 language="Mensury Locale"
-                implementationClass="cruelteam.plugins.mnlang.MnlangSyntaxHighlighterFactory"/>
+                implementationClass="mensury.edits.melang.MelangSyntaxHighlighterFactory"/>
 
 
         <!-- Color Settings -->
         <colorSettingsPage
-                implementation="cruelteam.plugins.mnlang.MnlangColorSettingsPage"/>
+                implementation="mensury.edits.melang.MelangColorSettingsPage"/>
 
         <additionalTextAttributes
                 scheme="Default"
-                file="mensury/mnlang_color_scheme.xml"/>
+                file="mensury/melang-color-scheme.xml"/>
     </extensions>
 </idea-plugin>
