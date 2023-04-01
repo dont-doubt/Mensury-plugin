@@ -26,9 +26,7 @@ This plugin has been written by Rivta for Mensury client developement purposes.
 - To get the .zip plugin as output, you shall run `buildPlugin` task and get it inside <kbd>build/distributions</kbd> folder.
 
 
-#
-#
-#
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ### Developer ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
 - [x] Get familiar with the [template documentation][template].
