@@ -5,11 +5,8 @@
 [//]: # ([![Version]&#40;https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg&#41;]&#40;https://plugins.jetbrains.com/plugin/PLUGIN_ID&#41;)
 [//]: # ([![Downloads]&#40;https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg&#41;]&#40;https://plugins.jetbrains.com/plugin/PLUGIN_ID&#41;)
 
----
-
-## Description
 <!-- Plugin description -->
-This plugin was written by Rivta for Mensury client developement purposes.
+This plugin has been written by Rivta for Mensury client developement purposes.
 
 **Supports**:
 - Mensury locale language support (for any .melang files)
